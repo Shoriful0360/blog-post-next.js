@@ -1,11 +1,7 @@
-import React from 'react';
-
-const loading = () => {
+export default function Loading() {
     return (
-        <div>
-            Loading.....
-        </div>
+      <div>
+        <p className="text-center">Loading...</p>
+      </div>
     );
-};
-
-export default loading;
+  }
