@@ -1,7 +1,10 @@
+
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
-
+import { LoginLink} from "@kinde-oss/kinde-auth-nextjs/components";
+import {LogoutLink} from "@kinde-oss/kinde-auth-nextjs/components";
+import {getKindeServerSession} from "@kinde-oss/kinde-auth-nextjs/server";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -18,6 +21,7 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const {isAuthenticated} = getKindeServerSession();
   return (
     <html lang="en">
       <body
@@ -28,7 +32,14 @@ export default function RootLayout({ children }) {
 
             <li className="border-white border-2 px-2 py-1 text-green-800"><Link href={'/'}>Home</Link></li>
             <li className="border-white border-2 px-2 py-1 text-green-800"><Link href={'/profile'}>profile</Link></li>
-            <li className="border-white border-2 px-2 py-1 text-green-800">Login</li>
+            {
+              isAuthenticated ? 
+              <li className="border-white border-2 px-2 py-1 text-green-800"><LogoutLink>Log out</LogoutLink></li>
+              :
+            <li className="border-white border-2 px-2 py-1 text-green-800"><LoginLink>Sign in</LoginLink></li>
+            }
+         
+           
           </ul>
         </nav>
         {children}

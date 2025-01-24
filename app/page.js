@@ -11,13 +11,13 @@ const[blogData,setBlogData]=useState()
      setBlogData(res.data)
     })
   },[])
-  console.log(blogData)
+
   return (
    <main>
     <div className="text-start space-y-2 mt-4  md:w-8/12 mx-auto">
      {
       blogData?.map((item,idx)=><li className="list-none " key={item.id}>
-<Link href={`/${item.id}`}>{idx + 1}.  <span className="text-red-400">{item.title}</span></Link>
+<Link href={`/${item.id}`}>{idx + 1}.  <span className="text-blue-600">{item.title}</span></Link>
       </li>)
      }
     </div>
