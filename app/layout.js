@@ -20,8 +20,16 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable}  antialiased`}
       >
+        <nav className="px-10 mt-4 bg-red-100 py-3 ">
+          <ul className="flex justify-center gap-5 ">
+
+            <li className="border-white border-2 px-2 py-1 text-green-800">Home</li>
+            <li className="border-white border-2 px-2 py-1 text-green-800">Profile</li>
+            <li className="border-white border-2 px-2 py-1 text-green-800">Login</li>
+          </ul>
+        </nav>
         {children}
       </body>
     </html>
